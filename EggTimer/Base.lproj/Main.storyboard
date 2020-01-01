@@ -120,6 +120,22 @@
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJN-th-c5K" userLabel="Timer View">
                                         <rect key="frame" x="0.0" y="571.5" width="374" height="246.5"/>
+                                        <subviews>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="9op-RQ-GIQ">
+                                                <rect key="frame" x="20" y="119.5" width="354" height="8"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="7" id="owL-VA-tZp"/>
+                                                </constraints>
+                                                <color key="progressTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="trackTintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </progressView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="9op-RQ-GIQ" firstAttribute="leading" secondItem="nJN-th-c5K" secondAttribute="leading" constant="20" symbolic="YES" id="KYX-bX-1Js"/>
+                                            <constraint firstItem="9op-RQ-GIQ" firstAttribute="centerY" secondItem="nJN-th-c5K" secondAttribute="centerY" id="L3F-ae-YxT"/>
+                                            <constraint firstItem="9op-RQ-GIQ" firstAttribute="centerY" secondItem="nJN-th-c5K" secondAttribute="centerY" id="RR1-8F-jAH"/>
+                                            <constraint firstAttribute="trailing" secondItem="9op-RQ-GIQ" secondAttribute="trailing" id="fuv-db-6KR"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -133,10 +149,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="progressBar" destination="9op-RQ-GIQ" id="k86-QK-6QC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+            <point key="canvasLocation" x="691" y="200"/>
         </scene>
     </scenes>
     <resources>

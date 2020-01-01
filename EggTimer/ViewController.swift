@@ -10,18 +10,23 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let eggTimes : [String : Int] = ["Soft":1,"Medium":7,"Hard":12]
+    let eggTimes : [String : Int] = ["Soft":10,"Medium":20,"Hard":30]
     var timer = Timer()
     var seconds = 60
+    var totalTimer = 10
     var isTimerRunning = false
+    
+    @IBOutlet weak var progressBar: UIProgressView!
     
     @IBAction func hardnessSelected(_ sender: UIButton) {
         let hardness = sender.currentTitle!
         let result = eggTimes[hardness]!
-        seconds = 60*result
+        seconds = result
+        totalTimer = result
         if !isTimerRunning {
             runTimer()
         }
+        setProgress(progress: 1.0)
     }
     
     func runTimer() {
@@ -36,13 +41,20 @@ class ViewController: UIViewController {
     }
     
     @objc func updateTimer(){
+        var newProgress: Float = 0.0
         if seconds>=0 {
             print(seconds)
             seconds -= 1
+            newProgress = Float(seconds)/Float(totalTimer)
+            setProgress(progress: newProgress)
         }
         else{
             stopTimer()
             seconds = 60
         }
+    }
+    
+    func setProgress(progress : Float){
+        progressBar.progress = progress
     }
 }
